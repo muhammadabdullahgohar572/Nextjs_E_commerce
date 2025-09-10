@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { BackgroundBoxesDemo } from "./Test/BackgroundBoxesDemo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative min-h-screen w-full">
+          {/* Background effect */}
+          <BackgroundBoxesDemo />
+
+          {/* Page content */}
+          <main className="relative z-30">{children}</main>
+        </div>
       </body>
     </html>
   );
