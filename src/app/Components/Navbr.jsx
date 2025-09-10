@@ -1,6 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaHome, FaBoxOpen, FaTags, FaList, FaInfoCircle, FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import {
+  FaHome,
+  FaBoxOpen,
+  FaTags,
+  FaList,
+  FaInfoCircle,
+  FaShoppingCart,
+  FaUserAlt,
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,42 +26,44 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-2 bg-gray-950 shadow-lg" : "py-4 bg-gray-900"
+        isScrolled
+          ? "py-2 bg-black/90 backdrop-blur-md shadow-lg"
+          : "py-4 bg-gradient-to-r from-black via-gray-900 to-black"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent">
+            <span className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide">
               Ecommcred
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-red-400 font-medium transition-colors">
-              <FaHome /> <span>Home</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-red-400 font-medium transition-colors">
-              <FaBoxOpen /> <span>Products</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-red-400 font-medium transition-colors">
-              <FaList /> <span>Categories</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-red-400 font-medium transition-colors">
-              <FaTags /> <span>Deals</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 text-gray-300 hover:text-red-400 font-medium transition-colors">
-              <FaInfoCircle /> <span>About</span>
-            </a>
+          <div className="hidden ml-[4%] md:flex items-center space-x-8">
+            {[
+              { icon: <FaHome />, label: "Home" },
+              { icon: <FaBoxOpen />, label: "Products" },
+              { icon: <FaList />, label: "Categories" },
+              { icon: <FaTags />, label: "Deals" },
+              { icon: <FaInfoCircle />, label: "About" },
+            ].map((item, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+              >
+                {item.icon} <span>{item.label}</span>
+              </a>
+            ))}
           </div>
-          
+
           {/* Right Section */}
           <div className="flex items-center space-x-5">
             {/* Search Bar */}
-            <div className="hidden md:flex items-center">
-              <div className="relative flex items-center w-40 bg-gray-800 rounded-full px-3 py-2 transition-all duration-300 hover:bg-gray-700">
+            <div className="hidden md:flex md:ml-[6%] items-center">
+              <div className="relative flex items-center w-44 bg-gray-800 rounded-full px-3 py-2 transition-all duration-300 hover:bg-gray-700">
                 <svg
                   className="w-4 h-4 text-gray-400"
                   fill="none"
@@ -79,11 +89,11 @@ export default function Navbar() {
             {/* Cart */}
             <a
               href="#"
-              className="relative p-2 text-gray-300 hover:text-red-400"
+              className="relative p-2 text-gray-300 hover:text-yellow-400"
             >
               <FaShoppingCart className="w-6 h-6" />
               {cartItems > 0 && (
-                <span className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   {cartItems}
                 </span>
               )}
@@ -92,14 +102,14 @@ export default function Navbar() {
             {/* User Account */}
             <a
               href="#"
-              className="hidden md:block p-2 text-gray-300 hover:text-red-400"
+              className="hidden md:block p-2 text-gray-300 hover:text-yellow-400"
             >
               <FaUserAlt className="w-6 h-6" />
             </a>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-gray-300 hover:text-red-400"
+              className="md:hidden p-2 text-gray-300 hover:text-yellow-400"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
@@ -143,22 +153,22 @@ export default function Navbar() {
             isMenuOpen ? "max-h-96" : "max-h-0"
           }`}
         >
-          <div className="py-4 space-y-4 bg-gray-950 rounded-lg">
-            <a href="#" className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium">
-              <FaHome /> <span>Home</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium">
-              <FaBoxOpen /> <span>Products</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium">
-              <FaList /> <span>Categories</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium">
-              <FaTags /> <span>Deals</span>
-            </a>
-            <a href="#" className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium">
-              <FaInfoCircle /> <span>About</span>
-            </a>
+          <div className="py-4 space-y-4 bg-black/95 rounded-lg shadow-md">
+            {[
+              { icon: <FaHome />, label: "Home" },
+              { icon: <FaBoxOpen />, label: "Products" },
+              { icon: <FaList />, label: "Categories" },
+              { icon: <FaTags />, label: "Deals" },
+              { icon: <FaInfoCircle />, label: "About" },
+            ].map((item, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-yellow-400 font-medium"
+              >
+                {item.icon} <span>{item.label}</span>
+              </a>
+            ))}
 
             {/* Mobile Search */}
             <div className="px-4 pt-2">
@@ -188,7 +198,7 @@ export default function Navbar() {
             {/* Mobile Account */}
             <a
               href="#"
-              className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-red-400 font-medium"
+              className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-yellow-400 font-medium"
             >
               <FaUserAlt /> <span>My Account</span>
             </a>
