@@ -31,7 +31,7 @@ export default function Navbar() {
           : "py-4 bg-gradient-to-r from-black via-gray-900 to-black"
       }`}
     >
-      <div className="container px-4">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
@@ -41,7 +41,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden ml-[4%] md:flex items-center space-x-8">
+          <div className="hidden ml-[3%] md:flex items-center space-x-8">
             {[
               { icon: <FaHome />, label: "Home" },
               { icon: <FaBoxOpen />, label: "Products" },
