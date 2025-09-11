@@ -35,8 +35,28 @@ export const POST = async (req) => {
   }
 };
 export const GET = async () => {
-  return NextResponse.json({
-    success: true,
-    message: "HI",
-  });
+  try {
+    await connection_DB();
+
+    const dataget = await ItemsModel.find();
+
+    if (!dataget) {
+      return NextResponse.json({
+        success: false,
+        message: "Data Not Found",
+      });
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Data success Found",
+      data: dataget,
+    });
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      error: error.message,
+      message: "Data Not Found",
+    });
+  }
 };
