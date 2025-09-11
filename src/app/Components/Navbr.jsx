@@ -31,7 +31,7 @@ export default function Navbar() {
           : "py-4 bg-gradient-to-r from-black via-gray-900 to-black"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container  px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
