@@ -4,6 +4,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
+import { AllData } from "./Cards";
 
 const slideData = [
   {
@@ -41,6 +42,7 @@ const Hero_Section = () => {
   };
 
   return (
+    <>
     <div className="w-full relative">
       <Slider {...settings}>
         {slideData.map((slide, index) => (
@@ -63,7 +65,9 @@ const Hero_Section = () => {
           </div>
         ))}
       </Slider>
+
     </div>
+    </>
   );
 };
 

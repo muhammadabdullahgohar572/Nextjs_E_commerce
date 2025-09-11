@@ -15,11 +15,7 @@ const ItemsSchma = mongoose.Schema({
   },
   category: {
     type: String,
-  },
-  Size: {
-    type: String,
-    enum: ["S", "M", "L"],
-  },
+  }
 });
 
 const ItemsModel =
