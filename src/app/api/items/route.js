@@ -7,20 +7,15 @@ export const POST = async (req) => {
   try {
     const body = await req.json();
 
-    // Check agar array nahi hai
     if (!Array.isArray(body)) {
       return NextResponse.json(
-        {
-          success: false,
-          message: "Request body must be an array of items",
-        },
+        { success: false, message: "Request body must be an array of items" },
         { status: 400 }
       );
     }
 
     await connection_DB();
 
-    // Insert multiple documents
     const newItems = await ItemsModel.insertMany(body);
 
     return NextResponse.json(
@@ -33,20 +28,13 @@ export const POST = async (req) => {
     );
   } catch (error) {
     return NextResponse.json(
-      {
-        success: false,
-        message: "Error adding items",
-        error: error.message,
-      },
+      { success: false, message: "Error adding items", error: error.message },
       { status: 500 }
     );
   }
 };
 
-
-
-
-
+// GET API
 export const GET = async () => {
   try {
     await connection_DB();
