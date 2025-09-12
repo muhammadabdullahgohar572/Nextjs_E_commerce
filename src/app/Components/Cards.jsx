@@ -8,11 +8,9 @@ export function AllData() {
   const [filteredData, setFilteredData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true); // 👈 loading state
 
   const DataFetch = async () => {
     try {
-      setLoading(true); // start loading
       const dataget = await fetch("/api/items");
       const jsonconvert = await dataget.json();
       setData(jsonconvert.data);
@@ -26,8 +24,6 @@ export function AllData() {
       setCategories(uniqueCategories);
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoading(false); // stop loading
     }
   };
 
@@ -76,28 +72,19 @@ export function AllData() {
           ))}
         </div>
 
-        {/* Loading Spinner */}
-        {loading ? (
-          <div className="flex justify-center items-center py-20">
-            <div className="w-10 h-10 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
-          </div>
-        ) : (
-          <>
-            {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-              {filteredData.map((item) => (
-                <ProductCard key={item._id} item={item} />
-              ))}
-            </div>
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          {filteredData.map((item) => (
+            <ProductCard key={item._id} item={item} />
+          ))}
+        </div>
 
-            {filteredData.length === 0 && (
-              <div className="text-center text-gray-600 text-lg sm:text-xl mt-10 sm:mt-16 py-6 sm:py-8 bg-white rounded-xl shadow-sm">
-                {data.length === 0
-                  ? "No products available at the moment."
-                  : "No products found in this category."}
-              </div>
-            )}
-          </>
+        {filteredData.length === 0 && (
+          <div className="text-center text-gray-600 text-lg sm:text-xl mt-10 sm:mt-16 py-6 sm:py-8 bg-white rounded-xl shadow-sm">
+            {data.length === 0
+              ? "No products available at the moment."
+              : "No products found in this category."}
+          </div>
         )}
       </div>
     </div>
@@ -118,7 +105,7 @@ function ProductCard({ item }) {
   return (
     <CardContainer className="inter-var h-full">
       <CardBody
-        className="bg-white p-3 sm:p-5 relative group/card border border-gray-200 hover:border-gray-300 rounded-2xl h-full flex flex-col justify-between transition-all duration-300 ease-out hover:shadow-xl"
+        className="bg-white p-3  sm:p-5 relative group/card border border-gray-200 hover:border-gray-300 rounded-2xl h-full flex flex-col justify-between transition-all duration-300 ease-out hover:shadow-xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -164,8 +151,19 @@ function ProductCard({ item }) {
             {item.ItemsDescription}
           </CardItem>
 
+          {/* Size indicator if available */}
+          {item.Size && (
+            <CardItem
+              translateZ="10"
+              className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3"
+            >
+              Size: <span className="font-medium">{item.Size}</span>
+            </CardItem>
+          )}
+
           {/* Price and CTA */}
           <div className="mt-auto">
+            {/* Price section */}
             <div className="flex items-center flex-wrap mb-2 sm:mb-3 gap-1">
               {hasDiscount ? (
                 <>
