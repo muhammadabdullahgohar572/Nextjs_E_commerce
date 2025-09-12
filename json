@@ -1,0 +1,576 @@
+[
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1681747685985-a401c271156c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8200",
+    "DiscountPrice": "6999",
+    "ItemsDescription": "High quality leather backpack for travel",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1681302183941-9e4520a960fb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5600",
+    "DiscountPrice": "4499",
+    "ItemsDescription": "Classic brown shoulder bag stylish for women",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1713425886176-2c618d1e63cd?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9400",
+    "DiscountPrice": "7999",
+    "ItemsDescription": "Trendy black office laptop bag with zipper",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1713425886143-6ea8c776bf2d?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4200",
+    "DiscountPrice": "3499",
+    "ItemsDescription": "Stylish mini handbag for casual use",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1713425886695-7772d1498b11?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6200",
+    "DiscountPrice": "5299",
+    "ItemsDescription": "Elegant women’s handbag with golden chain",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1713425886695-7772d1498b11?q=80&w=411&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3400",
+    "DiscountPrice": "2699",
+    "ItemsDescription": "Backpack canvas travel style",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1751522949283-293763ee6f2a?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7800",
+    "DiscountPrice": "6599",
+    "ItemsDescription": "Modern gym bag waterproof material",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1664392147011-2a720f214e01?q=80&w=578&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "10500",
+    "DiscountPrice": "8999",
+    "ItemsDescription": "Premium black leather handbag",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1664391658474-c5509d4fc003?q=80&w=460&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4800",
+    "DiscountPrice": "3999",
+    "ItemsDescription": "Trendy sling bag for daily use",
+    "category": "Bags"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1608060434411-0c3fa9049e7b?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8600",
+    "DiscountPrice": "7499",
+    "ItemsDescription": "Travel duffle bag large capacity",
+    "category": "Bags"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1620625515032-6ed0c1790c75?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8200",
+    "DiscountPrice": "6999",
+    "ItemsDescription": "Luxury stainless steel wrist watch for men",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1663495974376-1b0f63f593b6?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5600",
+    "DiscountPrice": "4499",
+    "ItemsDescription": "Elegant ladies watch with leather strap",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1659875976926-6ff8dda5d947?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9400",
+    "DiscountPrice": "7999",
+    "ItemsDescription": "Digital sports watch with waterproof design",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1585123334904-845d60e97b29?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4200",
+    "DiscountPrice": "3499",
+    "ItemsDescription": "Stylish unisex casual quartz watch",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1606736739929-b369d6faabdb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6200",
+    "DiscountPrice": "5299",
+    "ItemsDescription": "Classic analog watch with golden dial",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1663495974376-1b0f63f593b6?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3400",
+    "DiscountPrice": "2699",
+    "ItemsDescription": "Simple everyday watch with black strap",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1673872951919-2edd646fc1a1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7800",
+    "DiscountPrice": "6599",
+    "ItemsDescription": "Smartwatch with heart rate and fitness tracker",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1618960428297-d9bcb6996898?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "10500",
+    "DiscountPrice": "8999",
+    "ItemsDescription": "Premium leather strap watch for formal wear",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1611163950958-a2ec5ccccd18?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4800",
+    "DiscountPrice": "3999",
+    "ItemsDescription": "Trendy women’s bracelet style watch",
+    "category": "Watches"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1659461279307-02ffbf7198b0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8600",
+    "DiscountPrice": "7499",
+    "ItemsDescription": "Water-resistant travel watch with dual time",
+    "category": "Watches"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?q=80&w=369&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3500",
+    "DiscountPrice": "2799",
+    "ItemsDescription": "Casual cotton t-shirt navy blue for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1693443688057-85f57b872a3c?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5600",
+    "DiscountPrice": "4499",
+    "ItemsDescription": "Formal white slim fit shirt for men office wear",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?q=80&w=392&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3100",
+    "DiscountPrice": "2599",
+    "ItemsDescription": "Casual blue denim jeans for men daily use",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8500",
+    "DiscountPrice": "6999",
+    "ItemsDescription": "Winter jacket with hood warm fabric for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=436&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9800",
+    "DiscountPrice": "8499",
+    "ItemsDescription": "Premium 3-piece suit slim fit for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1624548140150-108c3287f551?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2700",
+    "DiscountPrice": "2199",
+    "ItemsDescription": "Casual polo t-shirt short sleeve for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1624548140129-74786c5f1279?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7200",
+    "DiscountPrice": "5999",
+    "ItemsDescription": "Stylish blazer coat party wear for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1571821324176-52ff15e96348?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4900",
+    "DiscountPrice": "3999",
+    "ItemsDescription": "Casual hoodie sweatshirt with zipper for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1719710844666-956ea4834e0d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4400",
+    "DiscountPrice": "3599",
+    "ItemsDescription": "Slim fit black trousers office wear for men",
+    "category": "Men Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1732605559386-bc59426d1b16?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5800",
+    "DiscountPrice": "4799",
+    "ItemsDescription": "Checkered casual shirt long sleeve for men",
+    "category": "Men Clothes"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4200",
+    "DiscountPrice": "3399",
+    "ItemsDescription": "Floral summer dress casual wear for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1747222307273-6024c36d8e96?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6900",
+    "DiscountPrice": "5599",
+    "ItemsDescription": "Elegant evening gown black color for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1682965455202-b03aa36747ba?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7400",
+    "DiscountPrice": "6199",
+    "ItemsDescription": "Trendy leather jacket slim fit for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1701204056494-1fff4540e991?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2200",
+    "DiscountPrice": "1799",
+    "ItemsDescription": "Casual cotton top stylish design for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1617922001439-4a2e6562f328?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2700",
+    "DiscountPrice": "2199",
+    "ItemsDescription": "Printed t-shirt casual wear for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1739773375456-79be292cedb1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8300",
+    "DiscountPrice": "6999",
+    "ItemsDescription": "Stylish long coat winter wear for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1739773375426-880a10bea9a9?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3200",
+    "DiscountPrice": "2599",
+    "ItemsDescription": "Casual denim jeans slim fit for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1735553816769-7d30e5b1a19a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5600",
+    "DiscountPrice": "4599",
+    "ItemsDescription": "Formal office shirt white cotton for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1739773375246-621154fc080f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9800",
+    "DiscountPrice": "8499",
+    "ItemsDescription": "Luxury designer saree party wear for women",
+    "category": "Women Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1735553816811-7f8bb61fbf08?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4500",
+    "DiscountPrice": "3699",
+    "ItemsDescription": "Trendy skirt with modern pattern for women",
+    "category": "Women Clothes"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6500",
+    "DiscountPrice": "5299",
+    "ItemsDescription": "Casual white sneakers with modern design",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1595309849731-f7ce86eda9fc?q=80&w=983&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7200",
+    "DiscountPrice": "5999",
+    "ItemsDescription": "High-top basketball shoes for sports lovers",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1641745900309-75ceed0153e1?q=80&w=1014&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9800",
+    "DiscountPrice": "8499",
+    "ItemsDescription": "Premium leather formal shoes for men",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1601144537844-c2a0494aeb41?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5400",
+    "DiscountPrice": "4499",
+    "ItemsDescription": "Lightweight running shoes for daily training",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1712168332222-c1996322f935?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8700",
+    "DiscountPrice": "7399",
+    "ItemsDescription": "Stylish women’s heels with elegant design",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1626379637476-f78d1d86b9f3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "7600",
+    "DiscountPrice": "6399",
+    "ItemsDescription": "Trendy sneakers for everyday casual wear",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1587282857256-48fe253b5aaf?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6800",
+    "DiscountPrice": "5599",
+    "ItemsDescription": "Durable hiking boots for outdoor adventures",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1551726195-0c4e3e49f2a0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "8200",
+    "DiscountPrice": "6999",
+    "ItemsDescription": "Comfortable slip-on loafers for casual use",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1592424718341-c1779fad9f92?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "9300",
+    "DiscountPrice": "7999",
+    "ItemsDescription": "Luxury leather boots for men",
+    "category": "Men Shoes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1653240478710-5a71f83a5cbc?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5700",
+    "DiscountPrice": "4699",
+    "ItemsDescription": "Kids colorful sports shoes with soft sole",
+    "category": "Men Shoes"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1667161529094-16ba30fa00a0?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4800",
+    "DiscountPrice": "3999",
+    "ItemsDescription": "Trendy pink sneakers for casual wear",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1676234844384-82e1830af724?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5200",
+    "DiscountPrice": "4299",
+    "ItemsDescription": "Stylish glitter shoes for party wear",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1671806266905-87fb9402929e?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4500",
+    "DiscountPrice": "3699",
+    "ItemsDescription": "Cute floral sandals for girls",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1670214286530-62444aeb3fc8?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5900",
+    "DiscountPrice": "4799",
+    "ItemsDescription": "Comfortable ballerina flats for daily use",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1747222306644-6ac6ba5cbbb1?q=80&w=436&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4300",
+    "DiscountPrice": "3499",
+    "ItemsDescription": "Colorful sports shoes for active girls",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1705554519108-2cc81246cab2?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5100",
+    "DiscountPrice": "4199",
+    "ItemsDescription": "Trendy slip-on shoes with bow design",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1739982142368-e95a456125f3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5600",
+    "DiscountPrice": "4599",
+    "ItemsDescription": "Sparkling golden sandals for events",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1706569729705-55cca861772b?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4900",
+    "DiscountPrice": "3899",
+    "ItemsDescription": "Trendy ankle boots for winter wear",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1681223965359-846e790d1242?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5300",
+    "DiscountPrice": "4299",
+    "ItemsDescription": "Cute cartoon character sneakers for girls",
+    "category": "Girls Shoes"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1664790560571-b7922805de8d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6100",
+    "DiscountPrice": "4999",
+    "ItemsDescription": "Premium designer sandals for girls",
+    "category": "Girls Shoes"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1620464003286-a5b0d79f32c2?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3500",
+    "DiscountPrice": "2899",
+    "ItemsDescription": "Long-lasting matte lipstick in vibrant red shade",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4200",
+    "DiscountPrice": "3399",
+    "ItemsDescription": "Natural foundation for smooth coverage",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1551533256-20cbb76a6d48?q=80&w=436&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2600",
+    "DiscountPrice": "1999",
+    "ItemsDescription": "Waterproof liquid eyeliner for bold eyes",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1523634118614-82b2685ee3df?q=80&w=874&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3000",
+    "DiscountPrice": "2399",
+    "ItemsDescription": "Blush palette with multiple shades",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1521837670401-2bd439d49e6d?q=80&w=670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5400",
+    "DiscountPrice": "4499",
+    "ItemsDescription": "High-quality eyeshadow palette for girls",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1587303876752-91efb6315dcc?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3800",
+    "DiscountPrice": "3199",
+    "ItemsDescription": "Nude lip gloss with moisturizing formula",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1583241800698-e8ab01830a07?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4600",
+    "DiscountPrice": "3799",
+    "ItemsDescription": "Compact powder for a flawless finish",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1610545935603-cc863c2b7ce6?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2500",
+    "DiscountPrice": "1899",
+    "ItemsDescription": "Volumizing mascara for longer lashes",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1676818430931-b822bcc41dd7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3300",
+    "DiscountPrice": "2699",
+    "ItemsDescription": "Makeup brushes set with premium quality",
+    "category": "Makeup"
+  },
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1670963024624-9bf3f45dcebe?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6200",
+    "DiscountPrice": "5299",
+    "ItemsDescription": "Luxury makeup kit with multiple essentials",
+    "category": "Makeup"
+  }
+]
+[
+  {
+    "ItemsIamge": "https://plus.unsplash.com/premium_photo-1675183713626-81e6de4552e1?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3200",
+    "DiscountPrice": "2599",
+    "ItemsDescription": "Cute cotton t-shirt for boys with cartoon print",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4500",
+    "DiscountPrice": "3699",
+    "ItemsDescription": "Girls floral frock for party wear",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1656633702381-939966720da4?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2800",
+    "DiscountPrice": "2199",
+    "ItemsDescription": "Boys summer shorts with pockets",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1638189524069-87ec713c4fa2?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5200",
+    "DiscountPrice": "4299",
+    "ItemsDescription": "Girls winter jacket with hood",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1747886803298-393792b1a594?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3900",
+    "DiscountPrice": "3199",
+    "ItemsDescription": "Kids cotton pajamas for nightwear",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1747886803805-91720319451f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "4300",
+    "DiscountPrice": "3499",
+    "ItemsDescription": "Boys denim jeans with elastic waist",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1669928763478-f4e9f116e761?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "5000",
+    "DiscountPrice": "4199",
+    "ItemsDescription": "Girls pink hoodie with zipper",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1587116215900-bb2bba7c7cff?q=80&w=427&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "2700",
+    "DiscountPrice": "2099",
+    "ItemsDescription": "Boys polo shirt for casual wear",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "http://images.unsplash.com/photo-1601925240970-98447486fcdb?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "3400",
+    "DiscountPrice": "2799",
+    "ItemsDescription": "Girls leggings with colorful designs",
+    "category": "Kids Clothes"
+  },
+  {
+    "ItemsIamge": "https://images.unsplash.com/photo-1589988576838-0676b2ff398e?q=80&w=571&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Price": "6100",
+    "DiscountPrice": "4999",
+    "ItemsDescription": "Kids winter sweater with cute pattern",
+    "category": "Kids Clothes"
+  }
+]

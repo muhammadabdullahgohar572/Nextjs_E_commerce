@@ -2,8 +2,8 @@
 
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css"; 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { AllData } from "./Cards";
 
 const slideData = [
@@ -30,8 +30,7 @@ const slideData = [
 ];
 
 const Hero_Section = () => {
-   const settings = {
-    dots: true,
+  const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -43,30 +42,33 @@ const Hero_Section = () => {
 
   return (
     <>
-    <div className="w-full relative">
-      <Slider {...settings}>
-        {slideData.map((slide, index) => (
-          <div key={index} className="relative">
-            {/* Background Image */}
-            <img
-              src={slide.src}
-              alt={slide.title}
-              className="w-full h-[500px] object-cover"
-            />
+      <div className="w-full relative">
+        <Slider {...settings}>
+          {slideData.map((slide, index) => (
+            <div key={index} className="relative">
+              {/* Background Image */}
+              <img
+                src={slide.src}
+                alt={slide.title}
+                className="w-full h-[500px] object-cover"
+              />
 
-            {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-black/40"></div>
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-black/40"></div>
 
-            {/* Text */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center px-4">
-              <h2 className="text-4xl md:text-5xl font-bold drop-shadow-lg">{slide.title}</h2>
-              <p className="text-lg md:text-xl mt-2 drop-shadow-md">{slide.description}</p>
+              {/* Text */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center px-4">
+                <h2 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
+                  {slide.title}
+                </h2>
+                <p className="text-lg md:text-xl mt-2 drop-shadow-md">
+                  {slide.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
-
-    </div>
+          ))}
+        </Slider>
+      </div>
     </>
   );
 };
