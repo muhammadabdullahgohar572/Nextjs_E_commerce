@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
+import Link from "next/link";
 
 export function AllData() {
   const [data, setData] = useState([]);
@@ -18,7 +19,6 @@ export function AllData() {
       setData(jsonconvert.data);
       setFilteredData(jsonconvert.data);
 
-      // Extract unique categories
       const uniqueCategories = [
         "All",
         ...new Set(jsonconvert.data.map((item) => item.category)),
@@ -59,7 +59,6 @@ export function AllData() {
           </p>
         </div>
 
-        {/* Category Filter Buttons */}
         {!isLoading && categories.length > 0 && (
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-1 sm:px-2">
             {categories.map((category) => (
@@ -78,7 +77,6 @@ export function AllData() {
           </div>
         )}
 
-        {/* Loading State */}
         {isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {[...Array(8)].map((_, index) => (
@@ -95,7 +93,6 @@ export function AllData() {
           </div>
         )}
 
-        {/* Product Grid */}
         {!isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {filteredData.map((item) => (
@@ -120,7 +117,6 @@ function ProductCard({ item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Calculate discount percentage
   const price = parseFloat(item.Price);
   const discountPrice = parseFloat(item.DiscountPrice);
   const hasDiscount = discountPrice < price;
@@ -129,20 +125,17 @@ function ProductCard({ item }) {
     : 0;
 
   return (
-    <CardContainer className="inter-var h-full w-full">
+    <CardContainer className="inter-var cursor-pointer h-full w-full">
       <CardBody
-        className="bg-white p-3 sm:p-5 relative group/card border border-gray-200 hover:border-gray-300 rounded-2xl h-full flex flex-col justify-between transition-all duration-300 ease-out hover:shadow-xl"
+        className="bg-white cursor-pointer p-3 sm:p-5 relative group/card border border-gray-200 hover:border-gray-300 rounded-2xl h-full flex flex-col justify-between transition-all duration-300 ease-out hover:shadow-xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Badges Container */}
         <div className="absolute top-2 sm:top-3 left-2 sm:left-3 right-2 sm:right-3 z-10 flex justify-between">
-          {/* Category Tag */}
           <div className="bg-black text-white text-[10px] sm:text-xs font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm">
             {item.category}
           </div>
 
-          {/* Discount Badge */}
           {hasDiscount && (
             <div className="bg-gradient-to-r from-red-500 to-red-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm">
               {discountPercent}% OFF
@@ -150,7 +143,6 @@ function ProductCard({ item }) {
           )}
         </div>
 
-        {/* Product Image */}
         <div className="pt-3 sm:pt-4">
           <CardItem
             translateZ="100"
@@ -174,7 +166,6 @@ function ProductCard({ item }) {
           </CardItem>
         </div>
 
-        {/* Product Info */}
         <div className="mt-4 sm:mt-5 flex-1 flex flex-col">
           <CardItem
             translateZ="50"
@@ -183,19 +174,7 @@ function ProductCard({ item }) {
             {item.ItemsDescription}
           </CardItem>
 
-          {/* Size indicator if available */}
-          {/* {item.Size && (
-            <CardItem
-              translateZ="10"
-              className="text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3"
-            >
-              Size: <span className="font-medium">{item.Size}</span>
-            </CardItem>
-          )} */}
-
-          {/* Price and CTA */}
-          <div className="mt-auto">
-            {/* Price section */}
+          <div className="mt-auto space-y-2">
             <div className="flex items-center flex-wrap mb-2 sm:mb-3 gap-1">
               {hasDiscount ? (
                 <>
@@ -223,6 +202,17 @@ function ProductCard({ item }) {
             >
               Add to Cart
             </CardItem>
+
+            {/* New View More Information Button */}
+            <Link href={`../moreInfromationproduct/${item._id}`}>
+              <CardItem
+                translateZ="15"
+                as="button"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-gray-300 text-gray-800 text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
+              >
+                View More Information
+              </CardItem>
+            </Link>
           </div>
         </div>
       </CardBody>

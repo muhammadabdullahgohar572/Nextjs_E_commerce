@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   FaHome,
   FaBoxOpen,
@@ -7,7 +8,6 @@ import {
   FaList,
   FaInfoCircle,
   FaShoppingCart,
-  FaUserAlt,
 } from "react-icons/fa";
 
 export default function Navbar() {
@@ -23,6 +23,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { icon: <FaHome />, label: "Home", path: "/" },
+    { icon: <FaBoxOpen />, label: "Products", path: "/products" },
+    { icon: <FaList />, label: "Categories", path: "/categories" },
+    { icon: <FaTags />, label: "Deals", path: "/deals" },
+    { icon: <FaInfoCircle />, label: "About", path: "/about" },
+  ];
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -35,35 +43,29 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide">
+            <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide">
               Shopes
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden ml-[3%] md:flex items-center space-x-8">
-            {[
-              { icon: <FaHome />, label: "Home" },
-              { icon: <FaBoxOpen />, label: "Products" },
-              { icon: <FaList />, label: "Categories" },
-              { icon: <FaTags />, label: "Deals" },
-              { icon: <FaInfoCircle />, label: "About" },
-            ].map((item, idx) => (
-              <a
+            {navLinks.map((item, idx) => (
+              <Link
                 key={idx}
-                href="#"
+                href={item.path}
                 className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
               >
                 {item.icon} <span>{item.label}</span>
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Right Section */}
           <div className="flex items-center space-x-5">
             {/* Cart */}
-            <a
-              href="#"
+            <Link
+              href="/cart"
               className="relative p-2 text-gray-300 hover:text-yellow-400"
             >
               <FaShoppingCart className="w-6 h-6" />
@@ -72,22 +74,22 @@ export default function Navbar() {
                   {cartItems}
                 </span>
               )}
-            </a>
+            </Link>
 
             {/* Login and Signup Buttons (Desktop) */}
             <div className="hidden md:flex items-center space-x-3">
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
               >
                 Login
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/signup"
                 className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -137,36 +139,30 @@ export default function Navbar() {
           }`}
         >
           <div className="py-4 space-y-4 bg-black/95 rounded-lg shadow-md">
-            {[
-              { icon: <FaHome />, label: "Home" },
-              { icon: <FaBoxOpen />, label: "Products" },
-              { icon: <FaList />, label: "Categories" },
-              { icon: <FaTags />, label: "Deals" },
-              { icon: <FaInfoCircle />, label: "About" },
-            ].map((item, idx) => (
-              <a
+            {navLinks.map((item, idx) => (
+              <Link
                 key={idx}
-                href="#"
+                href={item.path}
                 className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-yellow-400 font-medium"
               >
                 {item.icon} <span>{item.label}</span>
-              </a>
+              </Link>
             ))}
 
             {/* Mobile Account Actions */}
             <div className="px-4 pt-2 border-t border-gray-800">
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="block w-full text-center py-2 mb-2 text-gray-300 font-medium border border-gray-700 rounded-md hover:border-yellow-400 hover:text-yellow-400 transition-colors"
               >
                 Login
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/signup"
                 className="block w-full text-center py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
         </div>
