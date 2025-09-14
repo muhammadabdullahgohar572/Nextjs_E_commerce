@@ -195,20 +195,20 @@ function ProductCard({ item }) {
               )}
             </div>
 
-            <CardItem
+            {/* <CardItem
               translateZ="20"
               as="button"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white text-xs sm:text-sm font-medium hover:bg-gray-800 transition-colors shadow-md hover:shadow-lg"
             >
               Add to Cart
-            </CardItem>
+            </CardItem> */}
 
             {/* New View More Information Button */}
             <Link href={`../moreInfromationproduct/${item._id}`}>
               <CardItem
                 translateZ="15"
                 as="button"
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white border border-gray-300 text-gray-800 text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white text-xs border border-gray-300  sm:text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
               >
                 View More Information
               </CardItem>

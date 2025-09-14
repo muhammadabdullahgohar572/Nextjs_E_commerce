@@ -14,7 +14,11 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartItems, setCartItems] = useState(3);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -23,10 +27,38 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // API Call for Categories
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("/api/items/categories");
+        const data = await res.json();
+        setCategories(data.data || []);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setShowDropdown(false);
+    }, 300); // 300ms delay before closing
+    setDropdownTimeout(timeout);
+  };
+
   const navLinks = [
     { icon: <FaHome />, label: "Home", path: "/" },
     { icon: <FaBoxOpen />, label: "Products", path: "/products" },
-    { icon: <FaList />, label: "Categories", path: "/categories" },
     { icon: <FaTags />, label: "Deals", path: "/deals" },
     { icon: <FaInfoCircle />, label: "About", path: "/about" },
   ];
@@ -43,7 +75,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide">
+            <Link
+              href="/"
+              className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide"
+            >
               Shopes
             </Link>
           </div>
@@ -59,6 +94,38 @@ export default function Navbar() {
                 {item.icon} <span>{item.label}</span>
               </Link>
             ))}
+
+            {/* Controlled Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors">
+                <FaList /> <span>Categories</span>
+              </button>
+              {showDropdown && (
+                <div
+                  className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-md"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {categories.length > 0 ? (
+                    categories.map((cat, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/categories/${cat}`}
+                        className="block px-4 py-2 text-gray-300 hover:text-yellow-400 transition-colors"
+                      >
+                        {cat}
+                      </Link>
+                    ))
+                  ) : (
+                    <p className="px-4 py-2 text-gray-500">No Categories</p>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Right Section */}
@@ -129,41 +196,6 @@ export default function Navbar() {
                 </svg>
               )}
             </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={`md:hidden mt-3 transition-all duration-300 overflow-hidden ${
-            isMenuOpen ? "max-h-96" : "max-h-0"
-          }`}
-        >
-          <div className="py-4 space-y-4 bg-black/95 rounded-lg shadow-md">
-            {navLinks.map((item, idx) => (
-              <Link
-                key={idx}
-                href={item.path}
-                className="flex items-center space-x-2 py-2 px-4 text-gray-300 hover:text-yellow-400 font-medium"
-              >
-                {item.icon} <span>{item.label}</span>
-              </Link>
-            ))}
-
-            {/* Mobile Account Actions */}
-            <div className="px-4 pt-2 border-t border-gray-800">
-              <Link
-                href="/login"
-                className="block w-full text-center py-2 mb-2 text-gray-300 font-medium border border-gray-700 rounded-md hover:border-yellow-400 hover:text-yellow-400 transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                href="/signup"
-                className="block w-full text-center py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
-              >
-                Sign Up
-              </Link>
-            </div>
           </div>
         </div>
       </div>
