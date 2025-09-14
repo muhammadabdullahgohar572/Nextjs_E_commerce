@@ -9,6 +9,8 @@ import {
   FaInfoCircle,
   FaShoppingCart,
 } from "react-icons/fa";
+import logo from "../imgs/christmas_2012_new_2855-removebg-preview.png";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +19,7 @@ export default function Navbar() {
   const [categories, setCategories] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
+  const [mobileCatOpen, setMobileCatOpen] = useState(false); // NEW: mobile categories toggle
 
   // Scroll effect
   useEffect(() => {
@@ -52,7 +55,7 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setShowDropdown(false);
-    }, 300); // 300ms delay before closing
+    }, 300);
     setDropdownTimeout(timeout);
   };
 
@@ -67,19 +70,23 @@ export default function Navbar() {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-2 bg-black/90 backdrop-blur-md shadow-lg"
-          : "py-4 bg-gradient-to-r from-black via-gray-900 to-black"
+          ? "py-0 bg-black/90 backdrop-blur-md shadow-lg"
+          : "py-0 bg-gradient-to-r from-black via-gray-900 to-black"
       }`}
     >
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent tracking-wide"
-            >
-              Shopes
+            <Link href="/" className="flex items-center">
+              <Image
+                src={logo}
+                alt="Brand Logo"
+                width={120}
+                height={50}
+                className="object-contain"
+                priority
+              />
             </Link>
           </div>
 
@@ -95,7 +102,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Controlled Dropdown */}
+            {/* Controlled Dropdown for Desktop */}
             <div
               className="relative"
               onMouseEnter={handleMouseEnter}
@@ -198,6 +205,64 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Content */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 bg-black/95 p-4 rounded-lg shadow-lg max-h-[70vh] overflow-y-auto space-y-3">
+            {navLinks.map((item, idx) => (
+              <Link
+                key={idx}
+                href={item.path}
+                className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+              >
+                {item.icon} <span>{item.label}</span>
+              </Link>
+            ))}
+
+            {/* Mobile Categories with Toggle */}
+            <div>
+              <button
+                onClick={() => setMobileCatOpen(!mobileCatOpen)}
+                className="flex items-center space-x-2 text-gray-400 font-medium w-full"
+              >
+                <FaList /> <span>Categories</span>
+              </button>
+              {mobileCatOpen && (
+                <div className="mt-2 ml-4 space-y-2">
+                  {categories.length > 0 ? (
+                    categories.map((cat, idx) => (
+                      <Link
+                        key={idx}
+                        href={`/categories/${cat}`}
+                        className="block text-gray-300 hover:text-yellow-400 transition-colors"
+                      >
+                        {cat}
+                      </Link>
+                    ))
+                  ) : (
+                    <p className="text-gray-500">No Categories</p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Login/Signup */}
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="/login"
+                className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+              >
+                Login
+              </Link>
+              <Link
+                href="/signup"
+                className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
