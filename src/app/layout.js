@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <div className="relative min-h-screen w-full overflow-hidden">
           {/* Background layer */}
           <div className="absolute inset-0 z-0">
-            <BackgroundBoxesDemo />
+            {/* <BackgroundBoxesDemo /> */}
           </div>
 
           {/* Foreground content */}

@@ -34,7 +34,9 @@ export default function Navbar() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("/api/items/categories");
+        const res = await fetch("/api/items/categories",{
+          cache: "no-store", 
+        });
         const data = await res.json();
         setCategories(data.data || []);
       } catch (error) {
@@ -153,13 +155,13 @@ export default function Navbar() {
             {/* Login and Signup Buttons (Desktop) */}
             <div className="hidden md:flex items-center space-x-3">
               <Link
-                href="/login"
+                href="/Pages/Login"
                 className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
               >
                 Login
               </Link>
               <Link
-                href="/signup"
+                href="../Pages/Signup"
                 className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
               >
                 Sign Up
@@ -249,13 +251,13 @@ export default function Navbar() {
             {/* Mobile Login/Signup */}
             <div className="flex flex-col space-y-2">
               <Link
-                href="/login"
+                href="/Pages/Login"
                 className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
               >
                 Login
               </Link>
               <Link
-                href="/signup"
+                href="../Pages/Signup"
                 className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
               >
                 Sign Up

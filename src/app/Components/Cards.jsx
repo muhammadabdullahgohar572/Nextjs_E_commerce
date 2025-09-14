@@ -14,7 +14,9 @@ export function AllData() {
   const DataFetch = async () => {
     try {
       setIsLoading(true);
-      const dataget = await fetch("/api/items");
+      const dataget = await fetch("/api/items", {
+        cache: "no-store",
+      });
       const jsonconvert = await dataget.json();
       setData(jsonconvert.data);
       setFilteredData(jsonconvert.data);
