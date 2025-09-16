@@ -1,0 +1,27 @@
+import { NextResponse } from "next/server";
+
+// This function can be marked `async` if using `await` inside
+export function middleware(request) {
+  const jwt = localStorage.getItem("userData");
+  const { pathname } = request.nextUrl;
+
+  if (request.nextUrl.pathname.startUrl("/api")) {
+    return NextResponse.next();
+  }
+
+  const Auth = pathname == "/Pages/Login" || "/Pages/Signup";
+
+  if (jwt && Auth) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  if (!jwt && !Auth) {
+    return NextResponse.redirect(new URL("/Pages/Login", request.url));
+  }
+
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ["/","/Pages/Login","/Pages/Signup"],
+};

@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import logo from "../imgs/christmas_2012_new_2855-removebg-preview.png";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +20,33 @@ export default function Navbar() {
   const [categories, setCategories] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
-  const [mobileCatOpen, setMobileCatOpen] = useState(false); // NEW: mobile categories toggle
+  const [mobileCatOpen, setMobileCatOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // Scroll effect
+  const path = usePathname();
+  const router = useRouter();
+
+  // ✅ Auth Check
+  const Auth = async () => {
+    try {
+      const UserToken = localStorage.getItem("userData");
+      if (!UserToken) {
+        if (!["/Pages/Login", "/Pages/Signup"].includes(path)) {
+          router.push("/Pages/Login");
+        }
+      } else {
+        const parsedData = JSON.parse(UserToken);
+        setUser(parsedData);
+        if (["/Pages/Login", "/Pages/Signup"].includes(path)) {
+          router.push("/");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // ✅ Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -30,13 +55,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // API Call for Categories
+  // ✅ API Call for Categories
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("/api/items/categories",{
-          cache: "no-store", 
-        });
+        const res = await fetch("/api/items/categories", { cache: "no-store" });
         const data = await res.json();
         setCategories(data.data || []);
       } catch (error) {
@@ -46,19 +69,30 @@ export default function Navbar() {
     fetchCategories();
   }, []);
 
+  // ✅ Run Auth on Path change
+  useEffect(() => {
+    Auth();
+  }, [path]);
+
+  // ✅ Dropdown Handlers
   const handleMouseEnter = () => {
-    if (dropdownTimeout) {
-      clearTimeout(dropdownTimeout);
-      setDropdownTimeout(null);
-    }
+    if (dropdownTimeout) clearTimeout(dropdownTimeout);
+    setDropdownTimeout(null);
     setShowDropdown(true);
   };
-
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setShowDropdown(false);
     }, 300);
     setDropdownTimeout(timeout);
+  };
+
+  // ✅ Logout
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    setUser(null);
+    router.push("/Pages/Login");
+    setIsMenuOpen(false);
   };
 
   const navLinks = [
@@ -79,18 +113,16 @@ export default function Navbar() {
       <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logo}
-                alt="Brand Logo"
-                width={120}
-                height={50}
-                className="object-contain"
-                priority
-              />
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logo}
+              alt="Brand Logo"
+              width={120}
+              height={50}
+              className="object-contain"
+              priority
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden ml-[3%] md:flex items-center space-x-8">
@@ -104,7 +136,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Controlled Dropdown for Desktop */}
+            {/* Dropdown */}
             <div
               className="relative"
               onMouseEnter={handleMouseEnter}
@@ -114,11 +146,7 @@ export default function Navbar() {
                 <FaList /> <span>Categories</span>
               </button>
               {showDropdown && (
-                <div
-                  className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-md"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
+                <div className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-md">
                   {categories.length > 0 ? (
                     categories.map((cat, idx) => (
                       <Link
@@ -152,21 +180,36 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* Login and Signup Buttons (Desktop) */}
-            <div className="hidden md:flex items-center space-x-3">
-              <Link
-                href="/Pages/Login"
-                className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                href="../Pages/Signup"
-                className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
-              >
-                Sign Up
-              </Link>
-            </div>
+            {/* ✅ If User is Logged In */}
+            {user ? (
+              <div className="hidden md:flex items-center space-x-3">
+                <span className="text-gray-300 font-medium">
+                  {user.username}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              // ✅ If User is NOT Logged In
+              <div className="hidden md:flex items-center space-x-3">
+                <Link
+                  href="/Pages/Login"
+                  className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/Pages/Signup"
+                  className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
 
             {/* Mobile Menu Button */}
             <button
@@ -221,7 +264,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Mobile Categories with Toggle */}
+            {/* Mobile Categories */}
             <div>
               <button
                 onClick={() => setMobileCatOpen(!mobileCatOpen)}
@@ -248,21 +291,35 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Mobile Login/Signup */}
-            <div className="flex flex-col space-y-2">
-              <Link
-                href="/Pages/Login"
-                className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
-              >
-                Login
-              </Link>
-              <Link
-                href="../Pages/Signup"
-                className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
-              >
-                Sign Up
-              </Link>
-            </div>
+            {/* ✅ Mobile Login/Logout */}
+            {user ? (
+              <div className="flex flex-col space-y-2">
+                <span className="text-gray-300 font-medium">
+                  {user.username}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col space-y-2">
+                <Link
+                  href="/Pages/Login"
+                  className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/Pages/Signup"
+                  className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
           </div>
         )}
       </div>
