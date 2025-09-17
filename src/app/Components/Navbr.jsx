@@ -15,14 +15,13 @@ import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState(3);
   const [isScrolled, setIsScrolled] = useState(false);
   const [categories, setCategories] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const [mobileCatOpen, setMobileCatOpen] = useState(false);
   const [user, setUser] = useState(null);
-
+  const [Count, setcount] = useState(0);
   const path = usePathname();
   const router = useRouter();
 
@@ -69,9 +68,19 @@ export default function Navbar() {
     fetchCategories();
   }, []);
 
+  const counter = () => {
+    const counterItems = JSON.parse(localStorage.getItem("cart")) || [];
+    setcount(counterItems.length);
+  };
   // ✅ Run Auth on Path change
   useEffect(() => {
     Auth();
+    counter();
+
+    window.addEventListener("cartUpdated", counter);
+    return () => {
+      window.removeEventListener("cartUpdated", counter);
+    };
   }, [path]);
 
   // ✅ Dropdown Handlers
@@ -173,9 +182,9 @@ export default function Navbar() {
               className="relative p-2 text-gray-300 hover:text-yellow-400"
             >
               <FaShoppingCart className="w-6 h-6" />
-              {cartItems > 0 && (
+              {Count > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {cartItems}
+                  {Count}
                 </span>
               )}
             </Link>

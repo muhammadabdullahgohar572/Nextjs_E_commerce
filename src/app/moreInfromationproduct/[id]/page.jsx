@@ -4,7 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lens } from "../../../components/ui/lens";
-
 import Beams from "./Beams";
 import Rays from "./Rays";
 
@@ -12,6 +11,7 @@ const MoreInformation = (props) => {
   const params = useParams();
   const router = useRouter();
   const id = props.id || params.id;
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -20,6 +20,7 @@ const MoreInformation = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [hovering, setHovering] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [cart, setcart] = useState([]);
 
   useEffect(() => {
     const apiCall = async () => {
@@ -37,6 +38,39 @@ const MoreInformation = (props) => {
 
     apiCall();
   }, [id]);
+
+  const add_cart = (item) => {
+    try {
+      let existingCart = [...cart];
+
+      const itemExist = existingCart.some(
+        (cartitems) => cartitems._id === item._id
+      );
+
+      if (itemExist) {
+        // 🔹 remove item
+        existingCart = existingCart.filter(
+          (cartitems) => cartitems._id !== item._id
+        );
+      } else {
+        // 🔹 add item
+        existingCart.push(item);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(existingCart));
+      setcart(existingCart);
+
+      // 🔹 Notify Navbar instantly
+      window.dispatchEvent(new Event("cartUpdated"));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setcart(savedCart);
+  }, []);
 
   const allImages = data ? [data.ItemsIamge] : [];
 
@@ -94,7 +128,7 @@ const MoreInformation = (props) => {
   }
 
   return (
-    <div className="min-h-screen  mt-[2%] bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4">
+    <div className="min-h-screen mt-[2%] bg-gradient-to-br from-blue-50 to-purple-50 py-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Back to Homepage Button */}
         <motion.button
@@ -366,17 +400,18 @@ const MoreInformation = (props) => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-medium shadow-md hover:bg-blue-700"
+                onClick={() => add_cart(data)}
+                className={`flex-1 py-3 px-6 rounded-lg font-medium shadow-md 
+                  ${
+                    cart.some((cartitems) => cartitems._id === data._id)
+                      ? "bg-red-600 text-white hover:bg-red-700"
+                      : "bg-blue-600 text-white hover:bg-blue-700"
+                  }`}
               >
-                Add to Cart
+                {cart.some((cartitems) => cartitems._id === data._id)
+                  ? "Remove from Cart"
+                  : "Add to Cart"}
               </motion.button>
-              {/* <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex-1 bg-white text-blue-600 py-3 px-6 rounded-lg font-medium border border-blue-600 hover:bg-blue-50"
-              >
-                Buy Now
-              </motion.button> */}
             </motion.div>
 
             {/* Product Details */}
@@ -416,7 +451,3 @@ const MoreInformation = (props) => {
 };
 
 export default MoreInformation;
-
-
-
-
