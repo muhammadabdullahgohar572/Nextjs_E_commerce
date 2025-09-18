@@ -13,7 +13,7 @@ import {
   FaTimes,
   FaBars,
   FaChevronDown,
-  FaEnvelope
+  FaEnvelope,
 } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -80,7 +80,7 @@ export default function Navbar() {
     const counterItems = JSON.parse(localStorage.getItem("cart")) || [];
     setCount(counterItems.length);
   };
-  
+
   // ✅ Run Auth on Path change
   useEffect(() => {
     Auth();
@@ -98,7 +98,7 @@ export default function Navbar() {
     setDropdownTimeout(null);
     setShowDropdown(true);
   };
-  
+
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setShowDropdown(false);
@@ -127,10 +127,21 @@ export default function Navbar() {
 
   const navLinks = [
     { icon: <FaHome className="text-sm" />, label: "Home", path: "/" },
-    { icon: <FaBoxOpen className="text-sm" />, label: "Products", path: "/Pages/product" },
-    { icon: <FaTags className="text-sm" />, label: "Contact us", path: "/Pages/Deals" },
-    { icon: <FaInfoCircle className="text-sm" />, label: "About", path: "/Pages/About" },
-   
+    {
+      icon: <FaBoxOpen className="text-sm" />,
+      label: "Products",
+      path: "/Pages/product",
+    },
+    {
+      icon: <FaTags className="text-sm" />,
+      label: "Contact us",
+      path: "/Pages/Deals",
+    },
+    {
+      icon: <FaInfoCircle className="text-sm" />,
+      label: "About",
+      path: "/Pages/About",
+    },
   ];
 
   return (
@@ -156,14 +167,15 @@ export default function Navbar() {
                   <FaBars className="w-5 h-5" />
                 )}
               </button>
-              
+
               <Link href="/" className="flex items-center">
-                <span className="text-xl font-bold text-yellow-400">SHOPMATE</span>
+                <span className="text-xl font-bold text-yellow-400">
+                  SHOPMATE
+                </span>
               </Link>
             </div>
 
             {/* Desktop Search Bar - Always Visible */}
-          
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
@@ -184,7 +196,8 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button className="flex items-center space-x-1 text-gray-300 hover:text-yellow-400 font-medium transition-colors py-2 text-sm xl:text-base">
-                  <FaList className="text-sm" /> <span>Categories</span> <FaChevronDown className="text-xs" />
+                  <FaList className="text-sm" /> <span>Categories</span>{" "}
+                  <FaChevronDown className="text-xs" />
                 </button>
                 {showDropdown && (
                   <div className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-xl border border-gray-700 py-2 z-50">
@@ -199,7 +212,9 @@ export default function Navbar() {
                         </Link>
                       ))
                     ) : (
-                      <p className="px-4 py-2 text-gray-500 text-sm">Loading categories...</p>
+                      <p className="px-4 py-2 text-gray-500 text-sm">
+                        Loading categories...
+                      </p>
                     )}
                   </div>
                 )}
@@ -232,44 +247,50 @@ export default function Navbar() {
               {/* ✅ If User is Logged In */}
               {user ? (
                 <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
-                  {/* User Dropdown */}
+                  {/* User Dropdown (only info, no logout) */}
                   <div className="relative group">
                     <button className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 p-2">
                       <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-yellow-500 flex items-center justify-center">
                         <FaUser className="text-black text-xs md:text-sm" />
                       </div>
-                      <span className="font-medium text-sm hidden xl:block">{user.username}</span>
+                      <span className="font-medium text-sm hidden xl:block">
+                        {user.username}
+                      </span>
                     </button>
-                    
+
                     {/* User Info Dropdown */}
                     <div className="absolute right-0 mt-2 w-64 bg-black/95 rounded-lg shadow-xl border border-gray-700 py-3 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                       <div className="px-4 py-2 border-b border-gray-700">
-                        <p className="font-medium text-white text-sm">Welcome back!</p>
+                        <p className="font-medium text-white text-sm">
+                          Welcome back!
+                        </p>
                       </div>
                       <div className="px-4 py-3">
-                        <div className="flex items-center space-x-3 mb-3">
+                        <div className="flex items-center space-x-3">
                           <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center">
                             <FaUser className="text-black text-sm" />
                           </div>
                           <div>
-                            <p className="font-medium text-white text-sm">{user.username}</p>
+                            <p className="font-medium text-white text-sm">
+                              {user.username}
+                            </p>
                             <p className="text-gray-400 text-xs flex items-center">
-                              <FaEnvelope className="mr-1 text-xs" /> {user.email}
+                              <FaEnvelope className="mr-1 text-xs" />{" "}
+                              {user.email}
                             </p>
                           </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-2 mt-4">
-                         
-                          <button
-                            onClick={handleLogout}
-                            className="px-3 py-2 bg-red-600 text-white text-xs rounded-md hover:bg-red-500 transition-colors"
-                          >
-                            Logout
-                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
+
+                  {/* ✅ Logout Button alag se */}
+                  <button
+                    onClick={handleLogout}
+                    className="px-3 py-2 bg-red-600 text-white text-xs rounded-md hover:bg-red-500 transition-colors"
+                  >
+                    Logout
+                  </button>
                 </div>
               ) : (
                 // ✅ If User is NOT Logged In
@@ -324,7 +345,9 @@ export default function Navbar() {
                   <FaUser className="text-black text-xs" />
                 </div>
                 <div>
-                  <p className="font-medium text-white text-sm">{user.username}</p>
+                  <p className="font-medium text-white text-sm">
+                    {user.username}
+                  </p>
                   <p className="text-xs text-gray-400 flex items-center">
                     <FaEnvelope className="mr-1 text-xs" /> {user.email}
                   </p>
@@ -353,7 +376,11 @@ export default function Navbar() {
                 <div className="flex items-center space-x-3">
                   <FaList className="text-sm" /> <span>Categories</span>
                 </div>
-                <FaChevronDown className={`transition-transform text-xs ${mobileCatOpen ? 'rotate-180' : ''}`} />
+                <FaChevronDown
+                  className={`transition-transform text-xs ${
+                    mobileCatOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
               {mobileCatOpen && (
                 <div className="mt-2 ml-6 space-y-2 border-l border-gray-700 pl-4">
@@ -372,7 +399,9 @@ export default function Navbar() {
                       </Link>
                     ))
                   ) : (
-                    <p className="py-2 text-gray-500 text-sm">Loading categories...</p>
+                    <p className="py-2 text-gray-500 text-sm">
+                      Loading categories...
+                    </p>
                   )}
                 </div>
               )}
@@ -382,7 +411,6 @@ export default function Navbar() {
             <div className="pt-3 border-t border-gray-800 space-y-3">
               {user ? (
                 <>
-                 
                   <button
                     onClick={handleLogout}
                     className="w-full py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors text-center text-sm"
@@ -413,7 +441,7 @@ export default function Navbar() {
         )}
       </nav>
 
-    <div className="h-16 lg:h-18"></div>
+      <div className="h-16 lg:h-14"></div>
     </>
   );
 }
