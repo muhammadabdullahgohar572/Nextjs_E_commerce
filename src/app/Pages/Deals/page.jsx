@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,9 +20,32 @@ export default function ContactUs() {
   const [formData, setFormData] = useState({
     subject: "",
     message: "",
+    user_id: "",
+    username: "",
+    email: "",
+    PhoneNumber: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // ✅ Load userData from localStorage safely
+  useEffect(() => {
+    try {
+      const storedData = localStorage.getItem("userData");
+      if (storedData) {
+        const parsed = JSON.parse(storedData);
+        setFormData((prev) => ({
+          ...prev,
+          user_id: parsed._id || "",
+          username: parsed.username || "",
+          email: parsed.email || "",
+          PhoneNumber: parsed.phoneNumber || "",
+        }));
+      }
+    } catch (error) {
+      console.error("Failed to parse localStorage userData", error);
+    }
+  }, []);
 
   // Handle input change
   const handleChange = (e) => {
@@ -35,25 +58,42 @@ export default function ContactUs() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("Sending formData:", formData); // ✅ Debugging
 
-      toast.success(
-        "✅ Message sent successfully! We'll get back to you soon.",
-        {
+    try {
+      const res = await fetch("/api/contactus", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success(
+          "✅ Message sent successfully! We'll get back to you soon.",
+          {
+            position: "top-center",
+            theme: "dark",
+          }
+        );
+
+        // Reset only subject & message
+        setFormData((prev) => ({
+          ...prev,
+          subject: "",
+          message: "",
+        }));
+      } else {
+        toast.error(`❌ ${data.error || "Something went wrong"}`, {
           position: "top-center",
           theme: "dark",
-        }
-      );
-
-      // Reset form
-      setFormData({
-        subject: "",
-        message: "",
-      });
+        });
+      }
     } catch (error) {
-      toast.error("❌ Something went wrong. Please try again later.", {
+      toast.error("❌ Server error, please try again later.", {
         position: "top-center",
         theme: "dark",
       });
@@ -81,7 +121,6 @@ export default function ContactUs() {
       },
     },
   };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden">
       {/* Background elements */}
