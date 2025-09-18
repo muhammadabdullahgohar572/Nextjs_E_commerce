@@ -57,7 +57,7 @@ const Hero_Section = () => {
               <div className="absolute inset-0 bg-black/40"></div>
 
               {/* Text */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center px-4">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center ">
                 <h2 className="text-4xl md:text-5xl font-bold drop-shadow-lg">
                   {slide.title}
                 </h2>

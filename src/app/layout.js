@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           {/* Foreground content */}
           <div className="relative z-20">
             <Navbar />
-            <main className="pt-16">{children}</main>
+            <main >{children}</main>
           </div>
         </div>
       </body>
