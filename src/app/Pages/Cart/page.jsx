@@ -304,7 +304,7 @@ const Cart = () => {
               Looks like you haven't added any items to your cart yet.
             </p>
             <Link
-              href="/products"
+              href="/Pages/product"
               className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
             >
               <FaStore className="mr-2" /> Browse Products

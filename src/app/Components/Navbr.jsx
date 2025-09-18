@@ -112,9 +112,9 @@ export default function Navbar() {
 
   const navLinks = [
     { icon: <FaHome />, label: "Home", path: "/" },
-    { icon: <FaBoxOpen />, label: "Products", path: "/products" },
-    { icon: <FaTags />, label: "Deals", path: "/deals" },
-    { icon: <FaInfoCircle />, label: "About", path: "/about" },
+    { icon: <FaBoxOpen />, label: "Products", path: "../Pages/product" },
+    { icon: <FaTags />, label: "Contact us", path: "../Pages/Deals" },
+    { icon: <FaInfoCircle />, label: "About", path: "../Pages/About" },
   ];
 
   return (
