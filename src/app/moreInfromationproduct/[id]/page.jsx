@@ -11,7 +11,6 @@ const MoreInformation = (props) => {
   const params = useParams();
   const router = useRouter();
   const id = props.id || params.id;
-
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);

@@ -8,6 +8,10 @@ import {
   FaList,
   FaInfoCircle,
   FaShoppingCart,
+  FaSearch,
+  FaUser,
+  FaTimes,
+  FaBars
 } from "react-icons/fa";
 import logo from "../imgs/christmas_2012_new_2855-removebg-preview.png";
 import Image from "next/image";
@@ -21,7 +25,7 @@ export default function Navbar() {
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
   const [mobileCatOpen, setMobileCatOpen] = useState(false);
   const [user, setUser] = useState(null);
-  const [Count, setcount] = useState(0);
+  const [count, setCount] = useState(0);
   const path = usePathname();
   const router = useRouter();
 
@@ -70,8 +74,9 @@ export default function Navbar() {
 
   const counter = () => {
     const counterItems = JSON.parse(localStorage.getItem("cart")) || [];
-    setcount(counterItems.length);
+    setCount(counterItems.length);
   };
+  
   // ✅ Run Auth on Path change
   useEffect(() => {
     Auth();
@@ -89,6 +94,7 @@ export default function Navbar() {
     setDropdownTimeout(null);
     setShowDropdown(true);
   };
+  
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setShowDropdown(false);
@@ -115,8 +121,8 @@ export default function Navbar() {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-0 bg-black/90 backdrop-blur-md shadow-lg"
-          : "py-0 bg-gradient-to-r from-black via-gray-900 to-black"
+          ? "py-2 bg-black/95 backdrop-blur-md shadow-lg"
+          : "py-3 bg-gradient-to-r from-black via-gray-900 to-black"
       }`}
     >
       <div className="container px-4 mx-auto">
@@ -134,7 +140,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden ml-[3%] md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 ml-6">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
@@ -155,13 +161,13 @@ export default function Navbar() {
                 <FaList /> <span>Categories</span>
               </button>
               {showDropdown && (
-                <div className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-md">
+                <div className="absolute left-0 mt-2 w-48 bg-black/95 rounded-lg shadow-md border border-gray-800 py-2 z-50">
                   {categories.length > 0 ? (
                     categories.map((cat, idx) => (
                       <Link
                         key={idx}
                         href={`/categories/${cat}`}
-                        className="block px-4 py-2 text-gray-300 hover:text-yellow-400 transition-colors"
+                        className="block px-4 py-2 text-gray-300 hover:text-yellow-400 transition-colors hover:bg-gray-800"
                       >
                         {cat}
                       </Link>
@@ -175,16 +181,16 @@ export default function Navbar() {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center space-x-4">
             {/* Cart */}
             <Link
-              href="/cart"
+              href="/Pages/Cart"
               className="relative p-2 text-gray-300 hover:text-yellow-400"
             >
               <FaShoppingCart className="w-6 h-6" />
-              {Count > 0 && (
+              {count > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {Count}
+                  {count}
                 </span>
               )}
             </Link>
@@ -192,9 +198,15 @@ export default function Navbar() {
             {/* ✅ If User is Logged In */}
             {user ? (
               <div className="hidden md:flex items-center space-x-3">
-                <span className="text-gray-300 font-medium">
-                  {user.username}
-                </span>
+                <Link
+                  href="/Pages/Profile"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400"
+                >
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center">
+                    <FaUser className="text-black text-sm" />
+                  </div>
+                  <span className="font-medium">{user.username}</span>
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors"
@@ -226,35 +238,9 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <FaTimes className="w-6 h-6" />
               ) : (
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <FaBars className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -262,12 +248,13 @@ export default function Navbar() {
 
         {/* Mobile Menu Content */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 bg-black/95 p-4 rounded-lg shadow-lg max-h-[70vh] overflow-y-auto space-y-3">
+          <div className="md:hidden mt-4 bg-black/95 p-4 rounded-lg shadow-lg max-h-[70vh] overflow-y-auto space-y-4">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
                 href={item.path}
-                className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+                className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400 font-medium transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.icon} <span>{item.label}</span>
               </Link>
@@ -277,24 +264,25 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileCatOpen(!mobileCatOpen)}
-                className="flex items-center space-x-2 text-gray-400 font-medium w-full"
+                className="flex items-center space-x-3 text-gray-300 font-medium w-full py-2"
               >
                 <FaList /> <span>Categories</span>
               </button>
               {mobileCatOpen && (
-                <div className="mt-2 ml-4 space-y-2">
+                <div className="mt-2 ml-6 space-y-2 border-l border-gray-700 pl-4">
                   {categories.length > 0 ? (
                     categories.map((cat, idx) => (
                       <Link
                         key={idx}
                         href={`/categories/${cat}`}
-                        className="block text-gray-300 hover:text-yellow-400 transition-colors"
+                        className="block py-2 text-gray-400 hover:text-yellow-400 transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
                       >
                         {cat}
                       </Link>
                     ))
                   ) : (
-                    <p className="text-gray-500">No Categories</p>
+                    <p className="py-2 text-gray-500">No Categories</p>
                   )}
                 </div>
               )}
@@ -302,28 +290,37 @@ export default function Navbar() {
 
             {/* ✅ Mobile Login/Logout */}
             {user ? (
-              <div className="flex flex-col space-y-2">
-                <span className="text-gray-300 font-medium">
-                  {user.username}
-                </span>
+              <div className="flex flex-col space-y-3 pt-2 border-t border-gray-800">
+                <Link
+                  href="/Pages/Profile"
+                  className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center">
+                    <FaUser className="text-black text-sm" />
+                  </div>
+                  <span className="font-medium">{user.username}</span>
+                </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors"
+                  className="px-4 py-2 bg-red-600 text-white font-medium rounded-md hover:bg-red-500 transition-colors text-left"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="flex flex-col space-y-2">
+              <div className="flex flex-col space-y-3 pt-2 border-t border-gray-800">
                 <Link
                   href="/Pages/Login"
                   className="px-4 py-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link
                   href="/Pages/Signup"
-                  className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors"
+                  className="px-4 py-2 bg-yellow-500 text-black font-medium rounded-md hover:bg-yellow-400 transition-colors text-center"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Sign Up
                 </Link>
