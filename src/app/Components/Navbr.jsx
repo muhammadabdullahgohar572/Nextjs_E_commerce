@@ -14,6 +14,7 @@ import {
   FaBars,
   FaChevronDown,
   FaEnvelope,
+  FaShoppingBag,
 } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -141,6 +142,11 @@ export default function Navbar() {
       icon: <FaInfoCircle className="text-sm" />,
       label: "About",
       path: "/Pages/About",
+    },
+    {
+      icon: <FaShoppingBag className="text-sm" />,
+      label: "Orders",
+      path: "/Pages/Order",
     },
   ];
 
