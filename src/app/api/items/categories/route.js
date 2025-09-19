@@ -11,7 +11,7 @@ export const GET = async () => {
     // Pehla letter uppercase aur baaki lowercase
     const result = dataget.map((item) => {
       const category = item.category || "";
-      return category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+      return category.charAt(0).toUpperCase() + category.slice(1);
     });
 
     const unique = [...new Set(result)];

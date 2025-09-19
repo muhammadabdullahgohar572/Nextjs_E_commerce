@@ -211,7 +211,7 @@ export default function Navbar() {
                       categories.map((cat, idx) => (
                         <Link
                           key={idx}
-                          href={`/categories/${cat}`}
+                          href={`/Pages/categories/${cat}`}
                           className="block px-4 py-2 text-gray-300 hover:text-yellow-400 transition-colors hover:bg-gray-800 text-sm"
                         >
                           {cat}
@@ -394,7 +394,7 @@ export default function Navbar() {
                     categories.map((cat, idx) => (
                       <Link
                         key={idx}
-                        href={`/categories/${cat}`}
+                        href={`/Pages/categories/${cat}`}
                         className="block py-2 text-gray-400 hover:text-yellow-400 transition-colors text-sm"
                         onClick={() => {
                           setIsMenuOpen(false);
