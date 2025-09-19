@@ -19,8 +19,8 @@ const Orders = () => {
         return;
       }
       
-      const { _id } = JSON.parse(userData);
-      const response = await fetch(`/api/orders/${_id}`);
+      const { id } = JSON.parse(userData);
+      const response = await fetch(`/api/PreOrder/${id}`);
       
       if (!response.ok) {
         throw new Error("Failed to fetch orders");
