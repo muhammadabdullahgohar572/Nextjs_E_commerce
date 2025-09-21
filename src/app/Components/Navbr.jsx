@@ -148,6 +148,7 @@ export default function Navbar() {
       label: "Orders",
       path: "/Pages/Order",
     },
+
   ];
 
   return (
