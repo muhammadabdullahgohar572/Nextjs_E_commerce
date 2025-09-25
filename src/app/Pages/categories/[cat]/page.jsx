@@ -2,19 +2,25 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { CardBody, CardContainer, CardItem } from "../../../../components/ui/3d-card";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "../../../../components/ui/3d-card";
 import Link from "next/link";
 
 const Categories = (props) => {
   const params = useParams();
- const categoryParam = props.cat || params.cat;
+  const categoryParam = props.cat || params.cat;
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
- const category = decodeURIComponent(categoryParam);
+  const category = decodeURIComponent(categoryParam);
   const DataFetch = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/items/categories/${category}`, { cache: "no-store" });
+      const res = await fetch(`/api/items/categories/${category}`, {
+        cache: "no-store",
+      });
       const json = await res.json();
 
       if (json.success) {
@@ -138,14 +144,20 @@ function ProductCard({ item }) {
 
         <div className="mt-4 sm:mt-5 flex-1 flex flex-col">
           {/* Description Always Full */}
-<CardItem
-  translateZ="50"
-  className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
->
-  {item.ItemsDescription}
-</CardItem>
-
-
+          <CardItem
+            translateZ="50"
+            className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+          >
+            {item.Name}
+          </CardItem>
+          <br />
+          <CardItem
+            translateZ="50"
+            className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+          >
+            {item.ItemsDescription}
+          </CardItem>
+          <br />
           <div className="mt-auto space-y-2">
             <div className="flex items-center flex-wrap mb-2 sm:mb-3 gap-1">
               {hasDiscount ? (

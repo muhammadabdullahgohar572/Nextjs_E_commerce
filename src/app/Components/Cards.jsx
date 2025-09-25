@@ -178,14 +178,21 @@ function ProductCard({ item }) {
 
         {/* Description with See More */}
         <div className="mt-4 sm:mt-5 flex-1 flex flex-col">
-         {/* Description Always Full */}
-<CardItem
-  translateZ="50"
-  className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
->
-  {item.ItemsDescription}
-</CardItem>
-
+          <CardItem
+            translateZ="50"
+            className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+          >
+            {item.Name}
+          </CardItem>
+          <br />
+          {/* Description Always Full */}
+          <CardItem
+            translateZ="50"
+            className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+          >
+            {item.ItemsDescription}
+          </CardItem>
+          <br />
 
           {isLong && (
             <button
