@@ -137,12 +137,14 @@ function ProductCard({ item }) {
         </div>
 
         <div className="mt-4 sm:mt-5 flex-1 flex flex-col">
-          <CardItem
-            translateZ="50"
-            className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-2 mb-2 leading-tight h-12 sm:h-14 overflow-hidden"
-          >
-            {item.ItemsDescription}
-          </CardItem>
+          {/* Description Always Full */}
+<CardItem
+  translateZ="50"
+  className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+>
+  {item.ItemsDescription}
+</CardItem>
+
 
           <div className="mt-auto space-y-2">
             <div className="flex items-center flex-wrap mb-2 sm:mb-3 gap-1">

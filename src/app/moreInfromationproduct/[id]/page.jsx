@@ -255,7 +255,7 @@ const MoreInformation = (props) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-gray-600 mb-6"
+              className=" text-gray-600 mb-6 whitespace-normal break-words break-all"
             >
               {data.ItemsDescription}
             </motion.p>

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useCallback, useEffect, useState } from "react";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
 import Link from "next/link";
@@ -14,9 +13,7 @@ export function AllData() {
   const DataFetch = async () => {
     try {
       setIsLoading(true);
-      const dataget = await fetch("/api/items", {
-        cache: "no-store",
-      });
+      const dataget = await fetch("/api/items", { cache: "no-store" });
       const jsonconvert = await dataget.json();
       setData(jsonconvert.data);
       setFilteredData(jsonconvert.data);
@@ -52,6 +49,7 @@ export function AllData() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-8 px-3 sm:px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Title */}
         <div className="text-center mb-10 sm:mb-12">
           <h1 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-3">
             Product Showcase
@@ -61,6 +59,7 @@ export function AllData() {
           </p>
         </div>
 
+        {/* Categories */}
         {!isLoading && categories.length > 0 && (
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-1 sm:px-2">
             {categories.map((category) => (
@@ -79,6 +78,7 @@ export function AllData() {
           </div>
         )}
 
+        {/* Loading Skeleton */}
         {isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {[...Array(8)].map((_, index) => (
@@ -95,6 +95,7 @@ export function AllData() {
           </div>
         )}
 
+        {/* Product Grid */}
         {!isLoading && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             {filteredData.map((item) => (
@@ -103,6 +104,7 @@ export function AllData() {
           </div>
         )}
 
+        {/* No Products */}
         {!isLoading && filteredData.length === 0 && (
           <div className="text-center text-gray-600 text-lg sm:text-xl mt-10 sm:mt-16 py-6 sm:py-8 bg-white rounded-xl shadow-sm">
             {data.length === 0
@@ -115,9 +117,11 @@ export function AllData() {
   );
 }
 
+/* ---------------- Product Card ---------------- */
 function ProductCard({ item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [showFull, setShowFull] = useState(false);
 
   const price = parseFloat(item.Price);
   const discountPrice = parseFloat(item.DiscountPrice);
@@ -126,6 +130,9 @@ function ProductCard({ item }) {
     ? Math.round(((price - discountPrice) / price) * 100)
     : 0;
 
+  const words = item.ItemsDescription ? item.ItemsDescription.split(" ") : [];
+  const isLong = words.length > 20;
+
   return (
     <CardContainer className="inter-var cursor-pointer h-full w-full">
       <CardBody
@@ -133,11 +140,11 @@ function ProductCard({ item }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {/* Category + Discount Badge */}
         <div className="absolute top-2 sm:top-3 left-2 sm:left-3 right-2 sm:right-3 z-10 flex justify-between">
           <div className="bg-black text-white text-[10px] sm:text-xs font-medium px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm">
             {item.category}
           </div>
-
           {hasDiscount && (
             <div className="bg-gradient-to-r from-red-500 to-red-600 text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm">
               {discountPercent}% OFF
@@ -145,6 +152,7 @@ function ProductCard({ item }) {
           )}
         </div>
 
+        {/* Product Image */}
         <div className="pt-3 sm:pt-4">
           <CardItem
             translateZ="100"
@@ -161,21 +169,34 @@ function ProductCard({ item }) {
                 className={`h-full w-full object-cover group-hover/card:scale-105 transition-transform duration-300 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
                 }`}
-                alt={item.ItemsDescription || "Product image"}
+                alt={item.ItemsName || "Product image"}
                 onLoad={() => setImageLoaded(true)}
               />
             </div>
           </CardItem>
         </div>
 
+        {/* Description with See More */}
         <div className="mt-4 sm:mt-5 flex-1 flex flex-col">
-          <CardItem
-            translateZ="50"
-            className="text-base sm:text-lg font-semibold text-gray-900 line-clamp-2 mb-2 leading-tight h-12 sm:h-14 overflow-hidden"
-          >
-            {item.ItemsDescription}
-          </CardItem>
+         {/* Description Always Full */}
+<CardItem
+  translateZ="50"
+  className="text-base sm:text-lg font-semibold text-gray-900 leading-tight whitespace-normal break-all"
+>
+  {item.ItemsDescription}
+</CardItem>
 
+
+          {isLong && (
+            <button
+              onClick={() => setShowFull(!showFull)}
+              className="text-blue-600 text-xs sm:text-sm mt-1 hover:underline"
+            >
+              {showFull ? "See Less" : "See More"}
+            </button>
+          )}
+
+          {/* Price */}
           <div className="mt-auto space-y-2">
             <div className="flex items-center flex-wrap mb-2 sm:mb-3 gap-1">
               {hasDiscount ? (
@@ -197,20 +218,12 @@ function ProductCard({ item }) {
               )}
             </div>
 
-            {/* <CardItem
-              translateZ="20"
-              as="button"
-              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white text-xs sm:text-sm font-medium hover:bg-gray-800 transition-colors shadow-md hover:shadow-lg"
-            >
-              Add to Cart
-            </CardItem> */}
-
-            {/* New View More Information Button */}
+            {/* View More Info */}
             <Link href={`../moreInfromationproduct/${item._id}`}>
               <CardItem
                 translateZ="15"
                 as="button"
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white text-xs border border-gray-300  sm:text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-black text-white text-xs border border-gray-300 sm:text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm hover:shadow-md"
               >
                 View More Information
               </CardItem>
